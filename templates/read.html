@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du produit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen text-white">
+
+    <div class="bg-gray-900 rounded-3xl shadow-2xl p-12 w-full max-w-md text-center">
+        <h1 class="text-3xl font-bold text-green-500 mb-6">Titre : {{ produit.titre }}</h1>
+        <p class="text-white text-xl mb-3"><strong>Auteur :</strong> {{ produit.auteur }}</p>
+        <p class="text-white text-xl mb-6"><strong>Catégorie :</strong> {{ produit.categorie }}</p>
+        <p class="text-white text-xl mb-6"><strong>date:</strong> {{ produit.date_creation }}</p>
+        <a href="{{ url_for('home') }}"
+           class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-all">
+           Retour
+        </a>
+    </div>
+
+</body>
+</html>
