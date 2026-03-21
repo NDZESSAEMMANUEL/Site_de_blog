@@ -1,25 +1,24 @@
 from flask import Flask,render_template,redirect,request,url_for,flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date
+import os
 
 app = Flask(__name__)
-app.secret_key = "ma_cle_secrete_super_secure_123"
 
-
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///produits.db'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
 db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer,primary_key=True)
-    titre = db.Column(db.String(80),unique=True,nullable = False)
-    auteur = db.Column(db.String(80),unique=True,nullable = False)
-    categorie = db.Column(db.String(80),unique=True,nullable = False)
+    titre = db.Column(db.String(80),nullable = False)
+    auteur = db.Column(db.String(80),nullable = False)
+    categorie = db.Column(db.String(80),nullable = False)
     date_creation = db.Column(db.String(20), nullable = False )
 
 with app.app_context():
-    produits = User.query.all()
     db.create_all()
 
 
@@ -34,12 +33,12 @@ def create_post():
         titre = request.form['titre']
         auteur = request.form['auteur']
         categorie = request.form['categorie']
-        date = request.form['date']
+        date_value = request.form['date']
 
-        if not titre or not auteur or not categorie or not date:
+        if not titre or not auteur or not categorie or not date_value:
             flash('tout les champs doivent etre remplis ','error')
-            return redirect(url_for(create_post))
-        new_user = User(titre = titre, auteur = auteur, categorie = categorie, date_creation = date)
+            return redirect(url_for('create_post'))
+        new_user = User(titre = titre, auteur = auteur, categorie = categorie, date_creation = date_value)
         try:
             db.session.add(new_user)
             db.session.commit()
@@ -70,6 +69,8 @@ def modify_post(id_post):
 @app.route('/delete/<int:id_post>')
 def delete_post(id_post):
     produit = User.query.get(id_post)
+    if produit is None:
+        return "Produit non trouvé", 404
     try:
         db.session.delete(produit)
         db.session.commit()
@@ -105,5 +106,4 @@ def search():
 
    
  
-if __name__ == "__main__":
-    app.run(debug=True)
+
