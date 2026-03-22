@@ -73,7 +73,7 @@ TP222/
 
 1. **Cloner le projet**
 ```bash
-git clone <lien_du_repo>
+git clone <git@github.com:NDZESSAEMMANUEL/Site_de_blog.git>
 cd TP222
 ```
 2. **creer et active l environnemnt **
