@@ -4,28 +4,28 @@
 ---
 
 # 2. Création de l’Article "Web Development"
-🔗 Lien : ![Création Article](imageTp/3.png)
-🔗 Lien : ![Création Article](imageTp/4.png)
+🔗 Lien : ![Création Article](3.png)
+🔗 Lien : ![Création Article](4.png)
 
 ---
 
 # 3. Modification de l’Auteur (FreeCodeCamp ➝ Grafikart)
-🔗 Lien : ![Modification Auteur](imageTp/5.png)
-🔗 Lien : ![Création Article](imageTp/6.png)
+🔗 Lien : ![Modification Auteur](5.png)
+🔗 Lien : ![Création Article](6.png)
 
 ---
 
 # 4. Affichage de l’Article "Web Development"
-🔗 Lien : ![Affichage Article](imageTp/7.png)
+🔗 Lien : ![Affichage Article](7.png)
 
 ---
 
 # 5. Recherche des Articles de Catégorie "IA"
-🔗 Lien : ![Création Article](imageTp/8.png)
-🔗 Lien : ![Recherche IA](imageTp/9.png)
+🔗 Lien : ![Création Article](8.png)
+🔗 Lien : ![Recherche IA](9.png)
 
 
 ---
 
 # 6. Suppression de l’Article "Web Development"
-🔗 Lien : ![Suppression Article](imageTp/10.png)
+🔗 Lien : ![Suppression Article](10.png)
